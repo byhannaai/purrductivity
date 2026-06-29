@@ -20,6 +20,9 @@ Cute, motivating, and just guilt-trippy enough to keep you on task. 🐾
 - 😴 A sleeping cat that blocks distracting sites
 - 🏃 A cat who runs away when you give up early
 - 🎉 A happy-cat celebration when you finish
+<img width="401" height="549" alt="FocusTimer" src="https://github.com/user-attachments/assets/bbfa9574-18dc-4c5c-aea8-6e7eabc56684" />
+<img width="488" height="591" alt="WebsitesBlocker" src="https://github.com/user-attachments/assets/3e5c7590-8ab2-4430-bd25-771587fab18a" />
+
 
 ## Load the Extension in Chrome
 
