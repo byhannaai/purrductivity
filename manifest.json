@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Purrductivity",
+  "version": "1.1.0",
+  "description": "A cozy cat keeps you on task — blocked sites curl up for a cat nap, and bail on focus early and your cat runs away.",
+  "permissions": ["storage", "declarativeNetRequest", "alarms", "notifications"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Purrductivity",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["blocked.html"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

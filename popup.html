@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header>
+    <span class="logo">🐱</span>
+    <h1>Purrductivity</h1>
+  </header>
+
+  <section class="status" id="status">
+    <div class="dot" id="dot"></div>
+    <div>
+      <div class="label" id="statusLabel">Idle</div>
+      <div class="sub" id="statusSub">Add sites below, then start focus.</div>
+    </div>
+  </section>
+
+  <section class="controls" id="controls">
+    <label>
+      Length
+      <input id="duration" type="number" min="1" max="240" step="1" value="25" />
+      min
+    </label>
+    <button id="startBtn" class="primary">Start focus</button>
+    <button id="stopBtn" class="danger hidden">Stop focus</button>
+    <label class="strict">
+      <input id="strict" type="checkbox" />
+      Strict (no early stop)
+    </label>
+  </section>
+
+  <section>
+    <h2>Block list</h2>
+    <form id="addForm">
+      <input id="addInput" type="text" placeholder="e.g. reddit.com" />
+      <button type="submit">Add</button>
+    </form>
+    <ul id="list"></ul>
+  </section>
+
+  <footer>
+    <p>Tip: keep the timer running — quit early and your cat bolts. 🐾</p>
+  </footer>
+
+  <!-- run-away cat overlay: shown when focus is ended before the timer -->
+  <div class="runaway" id="runaway" aria-hidden="true">
+    <div class="runaway-msg" id="runawayMsg">Your cat ran off! 🐈‍⬛💨</div>
+    <div class="runner" id="runner">
+      <img class="run-cat-img" src="orangcat-walkaway-pixelart.gif" alt="A cat walking away" />
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

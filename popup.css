@@ -1,0 +1,124 @@
+* { box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  width: 320px;
+  margin: 0;
+  padding: 14px;
+  color: #2f2722;
+  background: #fbf3ec;
+  position: relative;
+  overflow: hidden;
+}
+header {
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 12px;
+}
+header h1 { font-size: 15px; margin: 0; color: #7a4a1e; }
+.logo { font-size: 20px; }
+
+h2 { font-size: 13px; margin: 14px 0 6px; color: #8a6a4a; }
+
+.status {
+  display: flex; align-items: center; gap: 10px;
+  background: white; border: 1px solid #efe0d2; border-radius: 10px;
+  padding: 10px; margin-bottom: 10px;
+}
+.dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: #cdbcae;
+}
+.dot.active { background: #f0934a; box-shadow: 0 0 0 4px rgba(240,147,74,.22); }
+.label { font-weight: 600; font-size: 13px; }
+.sub { color: #8a7a6c; font-size: 12px; }
+
+.controls {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+.controls label {
+  display: flex; align-items: center; gap: 6px;
+  color: #8a7a6c; font-size: 12px;
+}
+.controls input[type="number"] {
+  width: 60px; text-align: center;
+  padding: 6px 8px; border-radius: 8px; border: 1px solid #efe0d2;
+}
+.strict { flex-basis: 100%; color: #8a7a6c; font-size: 12px; display: flex; align-items: center; gap: 6px; }
+.strict input { width: auto; }
+
+button {
+  font: inherit;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #efe0d2;
+  background: white;
+  cursor: pointer;
+}
+button.primary { background: #f0934a; color: white; border-color: #f0934a; }
+button.primary:hover { background: #e07c2e; }
+button.danger { background: #c75a3a; color: white; border-color: #c75a3a; }
+button.danger:hover { background: #ad4a2e; }
+button:hover { background: #fbf3ec; }
+.hidden { display: none !important; }
+
+#addForm { display: flex; gap: 6px; }
+#addForm input {
+  flex: 1; padding: 6px 8px; border-radius: 8px; border: 1px solid #efe0d2;
+  font: inherit;
+}
+
+ul { list-style: none; padding: 0; margin: 8px 0 0; max-height: 180px; overflow-y: auto; }
+li {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 6px 8px; background: white; border: 1px solid #efe0d2;
+  border-radius: 8px; margin-bottom: 4px; font-size: 13px;
+}
+li button {
+  border: none; background: transparent; color: #c75a3a;
+  padding: 0 4px; font-size: 14px; cursor: pointer;
+}
+.empty { color: #b0a294; font-size: 12px; padding: 6px 0; }
+
+footer { margin-top: 12px; }
+footer p { color: #b0a294; font-size: 11px; margin: 0; }
+
+/* ===================== run-away cat overlay ===================== */
+.runaway {
+  position: absolute; inset: 0;
+  background: rgba(251, 243, 236, 0.96);
+  display: none;
+  z-index: 50;
+  overflow: hidden;
+}
+.runaway.show { display: block; }
+.runaway-msg {
+  position: absolute; top: 40%; left: 0; right: 0;
+  text-align: center;
+  font-size: 15px; font-weight: 700; color: #7a4a1e;
+  opacity: 0;
+}
+.runaway.show .runaway-msg { animation: msgFade 1.7s ease forwards; }
+@keyframes msgFade {
+  0%   { opacity: 0; }
+  18%  { opacity: 1; }
+  78%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* the runner walks from the left -> off the right edge, then vanishes */
+.runner {
+  position: absolute; bottom: 44px; left: -110px;
+  width: 96px; height: 96px;
+}
+.runaway.show .runner { animation: dash 1.8s cubic-bezier(.4,.0,.7,1) forwards; }
+@keyframes dash {
+  0%   { left: -110px; opacity: 1; }
+  88%  { opacity: 1; }
+  100% { left: 340px; opacity: 0; }
+}
+.run-cat-img {
+  width: 96px; height: 96px;
+  object-fit: contain;
+  image-rendering: pixelated; /* keep the pixel art crisp */
+  display: block;
+}
